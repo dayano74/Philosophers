@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:41:50 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:43:17 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/19 22:45:00 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void greet_copilot(msg)
 {
-	printf("hi copilot\n");
+	printf("hi copilot\n")
 }
