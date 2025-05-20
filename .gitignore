@@ -1,0 +1,15 @@
+# defalt
+*.o
+*.d
+*.a
+*.so
+*.dylib
+*.dll
+*.lib
+*.exp
+*.def
+*.rc
+*.res
+
+# subject
+en.subject.pdf
