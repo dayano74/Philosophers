@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:27:30 by dayano           ###   ########.fr       */
+/*   Created: 2024/10/23 12:53:37 by dayano            #+#    #+#             */
+/*   Updated: 2025/02/22 14:48:56 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "libft.h"
 
-void	usage(char *program_name)
+int	ft_isdigit(int c)
 {
-	printf("Usage: %s ", program_name);
-	printf("<number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("[optional: number_of_times_each_philosopher_must_eat]\n");
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return (usage(argv[0]), 1);
-	return (0);
+	return (c >= '0' && c <= '9');
 }

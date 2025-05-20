@@ -12,7 +12,12 @@
 *.res
 
 # subject
+subject/
 en.subject.pdf
+en.subject.md
 
 # .git
 .gitkeep
+
+# playground
+playground/

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:27:30 by dayano           ###   ########.fr       */
+/*   Created: 2024/10/26 21:23:52 by dayano            #+#    #+#             */
+/*   Updated: 2025/03/29 20:42:20 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "libft.h"
 
-void	usage(char *program_name)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	printf("Usage: %s ", program_name);
-	printf("<number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("[optional: number_of_times_each_philosopher_must_eat]\n");
-}
+	size_t	i;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return (usage(argv[0]), 1);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
 	return (0);
 }

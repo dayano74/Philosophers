@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:27:30 by dayano           ###   ########.fr       */
+/*   Created: 2024/10/26 18:09:21 by dayano            #+#    #+#             */
+/*   Updated: 2025/02/22 14:52:18 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "libft.h"
 
-void	usage(char *program_name)
+char	*ft_strrchr(const char *s, int c)
 {
-	printf("Usage: %s ", program_name);
-	printf("<number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("[optional: number_of_times_each_philosopher_must_eat]\n");
-}
+	char	*s_ptr;
+	int		s_length;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return (usage(argv[0]), 1);
-	return (0);
+	s_length = ft_strlen(s);
+	s_ptr = (char *)s + s_length - 1;
+	if (c == '\0')
+		return ((char *)s + s_length);
+	while (s_length--)
+	{
+		if (*s_ptr == (char)c)
+			return (s_ptr);
+		s_ptr--;
+	}
+	return (NULL);
 }

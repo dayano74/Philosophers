@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:27:30 by dayano           ###   ########.fr       */
+/*   Created: 2024/11/07 15:32:12 by dayano            #+#    #+#             */
+/*   Updated: 2025/04/12 20:13:33 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "libft.h"
 
-void	usage(char *program_name)
+void	ft_putstr_fd(char *s, int fd)
 {
-	printf("Usage: %s ", program_name);
-	printf("<number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("[optional: number_of_times_each_philosopher_must_eat]\n");
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return (usage(argv[0]), 1);
-	return (0);
+	write(fd, s, ft_strlen(s));
 }

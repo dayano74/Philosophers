@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/19 22:27:30 by dayano           ###   ########.fr       */
+/*   Created: 2024/10/23 19:54:06 by dayano            #+#    #+#             */
+/*   Updated: 2025/02/22 14:51:08 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "libft.h"
 
-void	usage(char *program_name)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	printf("Usage: %s ", program_name);
-	printf("<number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("[optional: number_of_times_each_philosopher_must_eat]\n");
-}
+	unsigned char	*dest_ptr;
+	unsigned char	*src_ptr;
+	size_t			i;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 5 && argc != 6)
-		return (usage(argv[0]), 1);
-	return (0);
+	if (n == 0)
+		return (dest);
+	if (!dest && !src)
+		return (NULL);
+	dest_ptr = (unsigned char *)dest;
+	src_ptr = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		dest_ptr[i] = src_ptr[i];
+		i++;
+	}
+	return (dest);
 }
