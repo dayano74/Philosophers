@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:50:09 by dayano            #+#    #+#             */
-/*   Updated: 2025/04/01 21:56:55 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/20 15:35:08 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,5 @@ char	*get_next_line(int fd)
 	{
 		save = update_save(save);
 	}
-	// save = update_save(save);
 	return (line);
 }
