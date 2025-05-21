@@ -19,5 +19,5 @@ en.subject.md
 # .git
 .gitkeep
 
-# playground
-playground/
+# playground 
+playground/*.out
