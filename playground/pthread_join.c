@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
         printf("Usage: %s <message>\n", argv[0]);
         return 1;
     }
-    message = (char*)malloc(sizeof(char) * strlen(argv[1]));
+    message = (char*)malloc(sizeof(char) * (strlen(argv[1]) + 1));
     strcpy(message, argv[1]);
     printf("Main thread: Creating thread with message: %s\n", message);
     pthread_create(&thread, NULL, thread_function, (void*)message);
