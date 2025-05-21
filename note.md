@@ -6,7 +6,7 @@
 - [x] pthread_create
 - [x] pthread_detach
 - [x] pthread_join
-- [ ] pthread_mutex_init
-- [ ] pthread_mutex_destroy
-- [ ] pthread_mutex_lock
-- [ ] pthread_mutex_unlock
+- [x] pthread_mutex_init
+- [x] pthread_mutex_destroy
+- [x] pthread_mutex_lock
+- [x] pthread_mutex_unlock
