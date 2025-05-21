@@ -1,6 +1,6 @@
 # Philosophers Note
 
-### Explore unknowned functions
+### Explore unknown functions
 - [x] usleep
 - [x] gettimeofday
 - [x] pthread_create
