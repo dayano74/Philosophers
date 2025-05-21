@@ -1,5 +1,5 @@
 /**
- * @bried Documentation for pthread_join function
+ * @brief Documentation for pthread_join function
  * 
  * pthread_join() blocks the calling thread until the specified thread terminates.
  * protype: int pthread_join(pthread_t thread, void **retval);
