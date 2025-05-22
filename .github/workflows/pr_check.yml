@@ -1,0 +1,43 @@
+name: PR Check
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run build check
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install libreadline-dev -y
+          chmod +x copy_to_subject.sh
+          echo "check" | ./copy_to_subject.sh
+          make --no-print-directory -f check/Makefile
+        continue-on-error: false
+  norm:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install norminette
+        run: |
+          sudo apt update
+          sudo apt install python3-pip -y
+          pip3 install norminette
+      - name: Run norminette
+        shell: bash
+        run: |
+          chmod +x copy_to_subject.sh
+          echo "check" | ./copy_to_subject.sh
+          norminette check/ > norm_result.txt
+          cat norm_result.txt
+          if grep -q "Error:" norm_result.txt; then
+            echo "❌ Norminette check failed"
+            exit 1
+          else
+            echo "✅ Norminette passed"
+          fi
+        continue-on-error: false
