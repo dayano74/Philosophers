@@ -19,5 +19,8 @@ en.subject.md
 # .git
 .gitkeep
 
-# playground 
+# playground
 playground/*.out
+
+# forbidden
+/lib
