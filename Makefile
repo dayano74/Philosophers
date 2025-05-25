@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 INCLUDES = -Iinc
 
-SRCS = main.c 
+SRCS = main.c parse.c utils.c str_utils.c philo.c
 
 SRC_DIR = src/
 OBJ_DIR = obj/
