@@ -21,3 +21,7 @@ en.subject.md
 
 # playground 
 playground/*.out
+
+# forbidden
+/lib
+/libft
