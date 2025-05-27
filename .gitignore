@@ -10,6 +10,9 @@
 *.def
 *.rc
 *.res
+*.obj
+*.exe
+.vscode
 
 # subject
 subject/
@@ -19,7 +22,7 @@ en.subject.md
 # .git
 .gitkeep
 
-# playground 
+# playground
 playground/*.out
 
 # forbidden
