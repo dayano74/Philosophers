@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 03:38:32 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/26 03:39:37 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/27 21:57:41 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "main.h"
 
-int		init_philosophers(t_data *data);
+int		init_mutex_and_philo(t_data *data);
 
 #endif
