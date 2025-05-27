@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:34:42 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/26 03:39:33 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/27 21:38:59 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <string.h>
+# include <limits.h>
 # include "struct.h"
 # include "utils.h"
 # include "philo.h"

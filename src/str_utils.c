@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 03:15:21 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/26 03:34:55 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/27 21:38:34 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	_get_sign(const char *nptr, int *i)
 	return (1);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	long long	result;
 	int			sign;
@@ -52,5 +52,5 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return ((int)(sign * result));
+	return ((long)(sign * result));
 }

@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:15:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/26 03:59:51 by dayano           ###   ########.fr       */
+/*   Updated: 2025/05/27 21:57:19 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 
 	if (parse_args(argc, argv, &data))
 		return (_usage(argv[0]), 1);
-	if (init_philosophers(&data) != 0)
+	if (init_mutex_and_philo(&data) != 0)
 		return (1);
 	if (create_threads(&data) != 0)
 		return (cleanup_resources(&data), 1);
