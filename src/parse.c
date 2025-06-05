@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 02:54:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/05/27 21:39:43 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 18:16:52 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	parse_args(int argc, char **argv, t_data *data)
 		data->required_meals = -1;
 	if (data->philo_count <= 0 || data->time_to_die <= 0
 		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
-		|| (data->required_meals < 0 && argc == 6))
+		|| (argc == 6 && data->required_meals <= 0))
 	{
 		write(STDERR_FILENO, "Error: Invalid arguments\n", 25);
 		return (1);
