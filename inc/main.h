@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:34:42 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 18:36:11 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 20:36:19 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ long	get_timestamp(void);
 void	print_status(t_philo *philo, char *status);
 int		is_simulation_ended(t_data *data);
 void	cleanup_resources(t_data *data);
+void	wait_for_threads(t_data *data);
 
 // str_utils.c
 long	ft_atoi(const char *nptr);
