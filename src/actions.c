@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:54:09 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 18:17:55 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 19:23:29 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,19 @@ static void	precise_sleep(long milliseconds, t_data *data)
 	}
 }
 
+void _philo_count_is_one(t_philo *philo)
+{
+	pthread_mutex_lock(philo->left_fork);
+	print_status(philo, "has taken a fork");
+	precise_sleep(philo->data->time_to_die + 10, philo->data);
+	pthread_mutex_unlock(philo->left_fork);
+	return;
+}
+
 void	eat(t_philo *philo)
 {
+	if (philo->data->philo_count == 1)
+		return (_philo_count_is_one(philo));
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
