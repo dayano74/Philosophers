@@ -6,15 +6,15 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:51:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 18:12:44 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 20:35:57 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-static void *philosopher_routine(void *arg)
+static void	*philosopher_routine(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->data->death_mutex);
@@ -22,12 +22,12 @@ static void *philosopher_routine(void *arg)
 	pthread_mutex_unlock(&philo->data->death_mutex);
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while(!is_simulation_ended(philo->data))
+	while (!is_simulation_ended(philo->data))
 	{
 		eat(philo);
-		if (philo->data->required_meals > 0 &&
-			philo->meals_eaten >= philo->data->required_meals)
-			break;
+		if (philo->data->required_meals > 0
+			&& philo->meals_eaten >= philo->data->required_meals)
+			break ;
 		if (!is_simulation_ended(philo->data))
 			sleep_philosopher(philo);
 		if (!is_simulation_ended(philo->data))
@@ -38,12 +38,12 @@ static void *philosopher_routine(void *arg)
 
 static int	check_if_died(t_philo *philo)
 {
-	long cur_time;
+	long	cur_time;
 
 	pthread_mutex_lock(&philo->data->death_mutex);
 	cur_time = get_timestamp();
-	if (philo->last_meal_time > 0 &&
-		cur_time - philo->last_meal_time > philo->data->time_to_die)
+	if (philo->last_meal_time > 0
+		&& cur_time - philo->last_meal_time > philo->data->time_to_die)
 	{
 		philo->data->is_simulation_end = 1;
 		pthread_mutex_unlock(&philo->data->death_mutex);
@@ -54,10 +54,10 @@ static int	check_if_died(t_philo *philo)
 	return (0);
 }
 
-static int check_all_ate_enough(t_data *data)
+static int	check_all_ate_enough(t_data *data)
 {
-	int i;
-	int all_ate_enough;
+	int	i;
+	int	all_ate_enough;
 
 	if (data->required_meals <= 0)
 		return (0);
@@ -69,7 +69,7 @@ static int check_all_ate_enough(t_data *data)
 		if (data->philos[i].meals_eaten < data->required_meals)
 		{
 			all_ate_enough = 0;
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -79,7 +79,7 @@ static int check_all_ate_enough(t_data *data)
 	return (all_ate_enough);
 }
 
-static void *monitor_routine(void *arg)
+static void	*monitor_routine(void *arg)
 {
 	t_data	*data;
 	int		i;
@@ -101,16 +101,16 @@ static void *monitor_routine(void *arg)
 	return (NULL);
 }
 
-int		create_threads(t_data *data)
+int	create_threads(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	data->start_time = get_timestamp();
 	while (i < data->philo_count)
 	{
 		if (pthread_create(&data->philos[i].thread, NULL,
-						philosopher_routine, &data->philos[i]) != 0)
+				philosopher_routine, &data->philos[i]) != 0)
 		{
 			data->is_simulation_end = 1;
 			while (--i >= 0)
@@ -125,18 +125,4 @@ int		create_threads(t_data *data)
 		return (1);
 	}
 	return (0);
-}
-
-
-void	wait_for_threads(t_data *data)
-{
-	int i;
-
-	i = 0;
-	while(i < data->philo_count)
-	{
-		pthread_join(data->philos[i].thread, NULL);
-		i++;
-	}
-	pthread_join(data->monitor_thread, NULL);
 }

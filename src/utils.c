@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:53:09 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 18:10:36 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 20:36:05 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	get_timestamp(void)
 {
-	struct timeval tv;
+	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
@@ -22,8 +22,8 @@ long	get_timestamp(void)
 
 void	print_status(t_philo *philo, char *status)
 {
-	long timestamp;
-	int is_end;
+	long	timestamp;
+	int		is_end;
 
 	pthread_mutex_lock(&philo->data->print_mutex);
 	pthread_mutex_lock(&philo->data->death_mutex);
@@ -37,9 +37,9 @@ void	print_status(t_philo *philo, char *status)
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 
-int is_simulation_ended(t_data *data)
+int	is_simulation_ended(t_data *data)
 {
-	int ret;
+	int	ret;
 
 	pthread_mutex_lock(&data->death_mutex);
 	ret = data->is_simulation_end;
@@ -49,7 +49,7 @@ int is_simulation_ended(t_data *data)
 
 void	cleanup_resources(t_data *data)
 {
-	int i;
+	int	i;
 
 	if (data->philos)
 	{
@@ -69,4 +69,17 @@ void	cleanup_resources(t_data *data)
 	}
 	pthread_mutex_destroy(&data->print_mutex);
 	pthread_mutex_destroy(&data->death_mutex);
+}
+
+void	wait_for_threads(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->philo_count)
+	{
+		pthread_join(data->philos[i].thread, NULL);
+		i++;
+	}
+	pthread_join(data->monitor_thread, NULL);
 }

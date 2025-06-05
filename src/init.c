@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 03:35:56 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 15:43:25 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/05 20:29:36 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	cleanup_mutexes(t_data *data)
 {
-	int i;
+	int	i;
 
 	if (data->forks)
 	{
 		i = 0;
-		while(i < data->philo_count)
+		while (i < data->philo_count)
 		{
 			pthread_mutex_destroy(&data->forks[i]);
 			i++;
@@ -29,7 +29,6 @@ static void	cleanup_mutexes(t_data *data)
 	}
 	pthread_mutex_destroy(&data->print_mutex);
 	pthread_mutex_destroy(&data->death_mutex);
-
 }
 
 static int	init_mutexes(t_data *data)
@@ -51,8 +50,8 @@ static int	init_mutexes(t_data *data)
 		}
 		i++;
 	}
-	if (pthread_mutex_init(&data->print_mutex, NULL) != 0 ||
-		pthread_mutex_init(&data->death_mutex, NULL) != 0)
+	if (pthread_mutex_init(&data->print_mutex, NULL) != 0
+		|| pthread_mutex_init(&data->death_mutex, NULL) != 0)
 	{
 		cleanup_mutexes(data);
 		return (1);
@@ -62,13 +61,13 @@ static int	init_mutexes(t_data *data)
 
 static int	init_philos(t_data *data)
 {
-	int i;
+	int	i;
 
 	data->philos = malloc(sizeof(t_philo) * data->philo_count);
 	if (!data->philos)
 		return (1);
 	i = 0;
-	while(i < data->philo_count)
+	while (i < data->philo_count)
 	{
 		data->philos[i].id = i + 1;
 		data->philos[i].meals_eaten = 0;
@@ -83,7 +82,7 @@ static int	init_philos(t_data *data)
 	return (0);
 }
 
-int		init_mutex_and_philo(t_data *data)
+int	init_mutex_and_philo(t_data *data)
 {
 	if (init_mutexes(data) != 0)
 		return (1);
