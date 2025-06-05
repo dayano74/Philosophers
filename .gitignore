@@ -28,3 +28,4 @@ playground/*.out
 # forbidden
 /lib
 /libft
+philo
