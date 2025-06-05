@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 INCLUDES = -Iinc
 
-SRCS = main.c 
+SRCS = actions.c  init.c  main.c  parse.c  str_utils.c  thread.c  utils.c
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -13,7 +13,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS) 
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
