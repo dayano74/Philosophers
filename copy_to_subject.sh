@@ -1,10 +1,10 @@
 #!/bin/bash
-echo -n "Enter \"philo\": "
-read input
+echo "creating subject folder..."
+folder="submission"
 
-mkdir -p $input \
-&& cp -r src/ $input \
-&& cp -r inc/ $input \
-&& cp Makefile $input
+mkdir -p "$folder" \
+&& cp -r philo/ "$folder"/ \
+&& cp -r philo_bonus/ "$folder"/ \
+&& cp Makefile "$folder"/
 
-echo "output done!"
+echo "done!"
