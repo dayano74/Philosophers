@@ -34,7 +34,7 @@ $(NAME_BONUS): $(BONUS_OBJS)
 	@mkdir -p bin
 	$(CC) $(CFLAGS) -I$(BONUS_DIR)inc -o $(NAME_BONUS) $(BONUS_OBJS)
 
-$(BONUS_OBJ_DIR)%.o: $(BONUS_OBJ_DIR)$(SRC_DIR)%.c
+$(BONUS_OBJ_DIR)%.o: $(BONUS_DIR)$(SRC_DIR)%.c
 	@mkdir -p $(BONUS_OBJ_DIR)
 	$(CC) $(CFLAGS) -I$(BONUS_DIR)inc -c $< -o $@
 
