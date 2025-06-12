@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:53:09 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 20:36:05 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/12 10:55:03 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_status(t_philo *philo, char *status)
 	pthread_mutex_lock(&philo->data->death_mutex);
 	is_end = philo->data->is_simulation_end;
 	pthread_mutex_unlock(&philo->data->death_mutex);
-	if (!is_end || !strcmp(status, "died"))
+	if (!is_end || !ft_strcmp(status, "died"))
 	{
 		timestamp = get_timestamp() - philo->data->start_time;
 		printf("%ld %d %s\n", timestamp, philo->id, status);
