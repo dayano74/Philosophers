@@ -1,21 +1,10 @@
 #!/bin/bash
-echo "creating subject folder..."
-folder="submission"
+echo -n "Enter \"philo\": "
+read input
 
-mkdir -p "$folder"
+mkdir -p $input \
+&& cp -r src/ $input \
+&& cp -r inc/ $input \
+&& cp Makefile $input
 
-if [ ! -d "philo/" ]; then
-    echo "Error: Directory 'philo/' does not exist."
-    exit 1
-fi
-
-if [ ! -d "philo_bonus/" ]; then
-    echo "Error: Directory 'philo_bonus/' does not exist."
-    exit 1
-fi
-
-cp -r philo/ "$folder"/ \
-&& cp -r philo_bonus/ "$folder"/ \
-&& cp Makefile "$folder"/
-
-echo "done!"
+echo "output done!"
