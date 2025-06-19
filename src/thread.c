@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:51:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/05 20:35:57 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/19 20:46:43 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	*philosopher_routine(void *arg)
 {
 	t_philo	*philo;
+	int		should_exit;
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->data->death_mutex);
@@ -22,12 +23,13 @@ static void	*philosopher_routine(void *arg)
 	pthread_mutex_unlock(&philo->data->death_mutex);
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (!is_simulation_ended(philo->data))
+	should_exit = 0;
+	while (!is_simulation_ended(philo->data) && !should_exit)
 	{
 		eat(philo);
 		if (philo->data->required_meals > 0
 			&& philo->meals_eaten >= philo->data->required_meals)
-			break ;
+			should_exit = 1;
 		if (!is_simulation_ended(philo->data))
 			sleep_philosopher(philo);
 		if (!is_simulation_ended(philo->data))
