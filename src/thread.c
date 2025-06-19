@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:51:16 by dayano            #+#    #+#             */
-/*   Updated: 2025/06/19 20:36:04 by dayano           ###   ########.fr       */
+/*   Updated: 2025/06/19 20:46:43 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	*philosopher_routine(void *arg)
 {
 	t_philo	*philo;
-	int	should_exit;
+	int		should_exit;
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->data->death_mutex);
